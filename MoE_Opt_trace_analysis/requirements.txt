@@ -1,0 +1,2 @@
+# No mandatory runtime dependencies.
+# Optional: install matplotlib to generate analysis_charts.png.

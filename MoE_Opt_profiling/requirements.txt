@@ -1,0 +1,2 @@
+# 可选：matplotlib 用于条形图 / 散点图 PNG
+matplotlib>=3.5.0

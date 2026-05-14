@@ -1,0 +1,47 @@
+{
+  "schema_comment": "Optional manifest for baseline_clean vs candidate_clean compare (--manifest). Paths below are illustrative.",
+  "version_info": {
+    "baseline_clean": {
+      "commit": "deadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+      "branch": "main",
+      "build_config_summary": "Release, CANN xx, no instrumentation"
+    },
+    "candidate_clean": {
+      "commit": "cafebeefcafebeefcafebeefcafebeefcafebeef",
+      "branch": "feat/moe-tune",
+      "patch_notes": "optional free text or omit",
+      "diff_ref": "optional path or URL"
+    }
+  },
+  "run_config": {
+    "case_name": "moe_prefill_bench_001",
+    "shape": "",
+    "dtype": "",
+    "rank": "",
+    "global_bs": "",
+    "topk": "",
+    "expert_num": "",
+    "_comment": "Use string placeholders if unknown; keep keys stable for tooling."
+  },
+  "inputs": {
+    "baseline_clean_profiling_paths": ["attach op_summary CSV path separately via CLI"],
+    "candidate_clean_profiling_paths": ["attach op_summary CSV path separately via CLI"]
+  },
+  "parse_rules": {
+    "_comment_phase_map": "Regex on group-by label after aggregation e.g. OP Type name",
+    "phase_map": [
+      { "pattern": "FusedDeepMoe|Moe", "phase": "fused_deep_moe" },
+      { "pattern": ".+", "phase": "other" }
+    ],
+    "_comment_metrics": "Key metrics echoed for humans; aggregates use Task Duration sum today",
+    "key_metrics": [
+      "task_duration_us_sum",
+      "delta_task_duration_pct_vs_baseline"
+    ]
+  },
+  "decision_hints": {
+    "neutral_band_pct": 2.0,
+    "heavy_phase_pct": 15.0,
+    "force_need_trace_analysis": false
+  }
+}

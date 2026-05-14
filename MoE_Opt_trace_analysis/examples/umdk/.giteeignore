@@ -1,0 +1,10 @@
+**/output
+**/vendors
+**/fusion_result.json
+**/kernel_meta
+**/extra-info*
+build/cam/comm_operator/pybind
+build/cam/pytorch_extension
+**/ascend_kernels_ascend910_93_proj
+**/third_party
+.vscode

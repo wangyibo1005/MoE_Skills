@@ -1,0 +1,51 @@
+{
+  "experiment_id": "moe_exp_20260514_001",
+  "notes": "可选自由备注",
+
+  "skill1_profiling": {
+    "profile_summary_json": "/path/to/profile_summary.json",
+    "profile_compare_json": "/path/to/profile_compare.json",
+    "profiling_report_md": "/path/to/profiling_report.md",
+    "performance_decision_hint_json": "/path/to/performance_decision_hint.json"
+  },
+
+  "skill3_trace": {
+    "_comment": "以下可为 null。若给定 MoE_Opt_trace_analysis 的输出目录且缺省文件名，则用 summary/report/diagnosis/statistical_summary 自动映射（见 SKILL.md）。",
+    "trace_output_dir_optional": "/path/to/trace_analysis_output_dir",
+    "trace_analysis_json": null,
+    "bottleneck_explanation_json": null,
+    "trace_report_md": null,
+    "optimization_clues_md": null
+  },
+
+  "candidate_change": {
+    "patch_diff": "/path/to/patch.diff",
+    "changed_files_txt": "/path/to/changed_files.txt",
+    "change_summary_md": "/path/to/change_summary.md",
+    "intent_markdown": "本轮修改意图说明，可人工填写。"
+  },
+
+  "versions": {
+    "baseline_clean": { "branch": "", "commit": "", "build_config": "" },
+    "candidate_clean": { "branch": "", "commit": "", "patch_ref": "" },
+    "candidate_trace": { "commit_or_path": "", "branch": "" }
+  },
+
+  "run_config": {
+    "case_name": "",
+    "shape": "",
+    "dtype": "",
+    "rank": "",
+    "global_bs": "",
+    "expert_num": "",
+    "topk": "",
+    "environment": ""
+  },
+
+  "decision_rules": {
+    "performance_improve_pct_max_for_accept_hint": null,
+    "performance_regress_pct_min_for_reject_hint": null,
+    "require_trace_when_prof_hint_is_need_trace_analysis": false,
+    "final_decision_override": null
+  }
+}
